@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!studentDataString) {
     alert("You must log in first!");
-    window.location.href = "/html/student/studentLogin.html";
+    window.location.href = "./studentLogin.html";
     return; 
   }
   const student = JSON.parse(studentDataString);
@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function logout() {
   localStorage.removeItem("currentStudent");
-  window.location.href = "/html/student/studentLogin.html";
+  window.location.href = "./studentLogin.html";
 }
