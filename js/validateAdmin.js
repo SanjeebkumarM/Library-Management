@@ -4,7 +4,7 @@ async function validateAdmin(event) {
   var passwordInput = document.getElementById("adminPassword").value;
 
 try {
-    const response = await fetch("/librarians.json"); 
+    const response = await fetch("../../librarians.json"); 
     const jsonObj = await response.json();
 
     let loggedInAdmin = null;
@@ -21,7 +21,7 @@ try {
       alert("Invalid Credentials! Try Again.");
     } else {
       localStorage.setItem("currentAdmin", JSON.stringify(loggedInAdmin));
-      window.location.href = "adminOptions.html";
+      window.location.href = "./adminOptions.html";
     }
 
   } catch (error) {
