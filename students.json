@@ -28,21 +28,21 @@
       "rollNo": "CSE-24T01",
       "password": "1234",
       "borrowingHistory": []
-    }
+    },
     {
       "studentCardId": "CSE-24020",
       "name": "Paban Barik",
       "rollNo": "CSE-24020",
       "password": "1234",
       "borrowingHistory": []
-    }
+    },
     {
       "studentCardId": "CSE-24L01",
       "name": "Abhijit Kesari",
       "rollNo": "CSE-24L01",
       "password": "1234",
       "borrowingHistory": []
-    }
+    },
     {
       "studentCardId": "CSE-24L04",
       "name": "Rohit Kumar Pal",
