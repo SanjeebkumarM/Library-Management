@@ -4,7 +4,7 @@ async function validateStudent(event) {
   var passwordInput = document.getElementById("studentPassword").value;
 
 try {
-    const response = await fetch("/students.json"); 
+    const response = await fetch("../../students.json"); 
     const jsonObj = await response.json();
 
     let loggedInStudent = null;
@@ -21,7 +21,7 @@ try {
       alert("Invalid Credentials! Try Again.");
     } else {
       localStorage.setItem("currentStudent", JSON.stringify(loggedInStudent));
-      window.location.href = "studentOptions.html";
+      window.location.href = "./studentOptions.html";
     }
 
   } catch (error) {
