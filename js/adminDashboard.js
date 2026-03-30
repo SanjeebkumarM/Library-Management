@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!adminDataString) {
     alert("You must log in first!");
-    window.location.href = "librarianLogin.html";
+    window.location.href = "./librarianLogin.html";
     return; 
   }
   const admin = JSON.parse(adminDataString);
@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function logout() {
   localStorage.removeItem("currentAdmin");
-  window.location.href = "librarianLogin.html";
+  window.location.href = "./librarianLogin.html";
 }
