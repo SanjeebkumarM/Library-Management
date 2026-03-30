@@ -1,23 +1,63 @@
 /*****************HOMEPAGE********************/
 
 .navBar {
-  top: 0;
-  height: 75px;  /*need to add extra 75px to top div in all pages*/
-  width: 100%;
-  background-color: #054b8d;
-  position: fixed;
-  display: flex;
-  align-items: center; /*vertical align*/
+    background-color: #07508b;
+    height: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Animation */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts slightly lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);    /* Ends in normal position */
+    }
+}
+.nav-right {
+    margin-top: 6px;
+    margin-bottom: 5px;
+    flex-grow: 1;
+}
+.nav-right h3{
+  color: rgb(209, 209, 209);
+  font-weight: bold;
+  font-family: system-ui;
+  font-size: 14px;
+  
+  
+  margin-bottom: 0px
+}
+.nav-right p{
+  color: rgb(209, 209, 209);
+  font-family: system-ui;
+  font-size: 8.1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .logo {
-  padding-left: 25px;
-  flex-grow: 1;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  
 }
 .logo img {
-  height: 65px;
-  width: 65px;
-  border-radius: 50%;
+  height: 50px;
+  width: 55.93px;
 }
 
 .navButtons {
@@ -34,24 +74,17 @@
   background: #1c3266;
 }
 
-.backgroundImg {
-  position: absolute;
-  z-index: -10;  /*put image behind everything*/
-  height: 100%;
-  width: 100%;
-}
-
 .welcomeDiv {
-  padding-top: 150px;
+  padding-top: 100px;
   text-align: center;
 }
 .welcomeMsg {
-  font-size: 40px;
-  text-decoration: underline;
+  color: #07508b;
+  text-decoration: none;
 }
 .userType {
-  margin-top: 80px;
-  font-size: 30px;
+  margin-top: 50px;
+  font-size: 19px;
 }
 
 .selection {
@@ -75,24 +108,33 @@
 }
 
 .librarian {
+  margin-top: 30px;
   padding: 10px 0px;
+  display: flex;
+  justify-content: center;
 }
 .librarian button {
   background: orange;
-  padding: 15px 20px;
-  font-size: 25px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 15px 50px;
+  font-size: 20px;
 }
 .librarian button:hover {
   background: #cf8702;
 }
 
 .student {
-  padding: 30px 30px;
+  margin-top: 40px ;
+  display: flex;
+  justify-content: center;
 }
 .student button {
   background: salmon;
-  padding: 20px 20px;
-  font-size: 25px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 15px 50px;
+  font-size: 20px;
   position:center;
 }
 .student button:hover {
@@ -100,27 +142,86 @@
 }
 
 /**********************LOGIN*************************/
+.authContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px; /* Space for fixed navbar */
+}
+
+.login-card{
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  max-height: 650px;
+  max-width: 400px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background-color: rgba(255, 255, 255, 0.073);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 5px solid #0b63aa;
+  border-radius: 5px;
+  animation: fadeInSlide 0.6s ease-out forwards;
+}
 
 .login_main {
-  width: 50%;
-  margin: 150px auto 0px auto;
+  text-align: left;
+  margin-bottom: 30px;
+  width: 100%;
+  margin: 15px auto 0px auto;
 }
 
 .login_form {
   text-align: center;
 }
 .login_form h1 {
-  font-size: 40px;
+  font-size: 30px;
+  font-family: 'system-ui'; 
+  color: #07508b; 
+  margin-bottom: 50px;
+}
+.login_form label {
+  font-family: 'system-ui';
+  text-align: left;
+  display: block;  
+  color: #444; 
+  font-weight: bold; 
+  font-size: 16px; 
 }
 .login_form input {
-  margin: 5px 0px;
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+}
+.login_form input:focus{
+    outline: none;
+    border-color: #007bff;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(0,123,255, 0.1);
 }
 .login_form button {
-  margin: 5px 0px;
-  width: 100%;
-  padding: 10px;
-  font-size: 18px; 
+    width: 100%;
+    padding: 12px;
+    background-color: #07508b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
 }
+.login_form button:hover{ 
+  background-color: #003e81; 
+  transform: translateY(-2px); }
 
 /*****************LIBRARIAN BRANCHES LIST********************/
 
@@ -325,4 +426,96 @@
 
 .adminAddSpace {
   margin-bottom: 20px;
+}
+
+/*     Student/Admin Dshboard    */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 100px auto;
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.dashboard-container h1{
+  color: #000000;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  padding-bottom: 40px;
+  animation: fadeInSlide 0.6s ease-out forwards;
+}
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.card-b{
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #333;
+    display: block;
+    animation: fadeInSlide 0.6s ease-out forwards;
+    background-color: rgba(255, 255, 255, 0.073);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 5px solid #0b63aa;
+}
+.card-b:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.card-b h3 {
+    font-family: system-ui;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 25px;
+    color: #146DB2;
+}
+
+.card-b p {
+    font-family: system-ui;
+    color: #666;
+    font-size: 16px;
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Basic homepage icon */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    font-size: 2rem;
+}
+.bg-student {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0b63aa;
+}
+.bg-admin {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0b63aa;
+}
+
+.card-translucent {
+      background-color: rgba(255, 255, 255, 0.073);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }

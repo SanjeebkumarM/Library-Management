@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="../../css/index.css">
   <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-
 <body>
-  <div class="navBar">
+  <nav class="navBar">
     <div class="logo">
-      <a href="../homepage.html">
-        <img src="../../assets/books.jpg" alt="book">
+       <a href="../homepage.html">
+        <img src="../../assets/logo.png" alt="ses">
       </a>
     </div>
-  </div>
+    <div class="nav-right">
+        <h3>Sundargarh Engineering School</h3>
+        <p>Aproved by AICTE & Affiliated to SCTE & VT, Govt of India</p>
+    </div>
+  </nav>
 
   <div class="table_container table-responsive">
     <h2>Your Books</h2>
@@ -30,7 +32,7 @@
           <th scope="col">Book Title</th>
           <th scope="col">Author</th>
           <th scope="col">Branch</th>
-          <th scope="col">Date Out</th>
+          <th scope="col">Issued Date</th>
           <th scope="col">Due Date</th>
         </tr>
       </thead>
@@ -69,11 +71,11 @@
     </table>
 
     <div class="submit_bttns">
-      <a href="./student Options.html">
-        <button class="cancel">Cancel</button>
+      <a href="./studentOptions.html">
+        <button class="btn btn-danger px-5 mx-3">Cancel</button>
       </a>
       <a href="">
-        <button class="return">Return Selected Books</button>
+        <button class="btn btn-success">Return Selected Books</button>
       </a>
     </div>
   </div>

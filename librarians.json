@@ -1,0 +1,16 @@
+{
+  "librarians": [
+    {
+      "employeeID": "LIB-01",
+      "role": "Head Librarian" ,
+      "userName": "admin",
+      "password": "123"
+    },
+    {
+      "employeeID": "LIB-02",
+      "role": "Assistant Librarian",
+      "userName": "admin2",
+      "password": "124"
+    }
+  ]
+}

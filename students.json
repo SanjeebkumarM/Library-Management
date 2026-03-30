@@ -1,0 +1,33 @@
+{
+  "students": [
+    {
+      "studentCardId": "CSE-24028",
+      "name": "Sanjeeb Munda",
+      "rollNo": "CSE-24028",
+      "password": "1234",
+      "borrowingHistory": [
+        {
+          "bookId": "B001",
+          "title": "Data Structures",
+          "issuedDate": "2026-03-01",
+          "dueDate": "2026-04-01",
+          "returnDate": null
+        },
+        {
+          "bookId": "B002",
+          "title": "Operating Ssystem Concepts",
+          "issuedDate": "2026-03-10",
+          "dueDate": "2026-04-10",
+          "returnDate": null
+        }
+      ]
+    },
+    {
+      "studentCardId": "CSE-240T01",
+      "name": "Muna Sahu",
+      "rollNo": "CSE-240T01",
+      "password": "1234",
+      "borrowingHistory": []
+    }
+  ]
+}
