@@ -15,7 +15,7 @@
         },
         {
           "bookId": "B002",
-          "title": "Operating Ssystem Concepts",
+          "title": "Operating System Concepts",
           "issuedDate": "2026-03-10",
           "dueDate": "2026-04-10",
           "returnDate": null
@@ -23,9 +23,30 @@
       ]
     },
     {
-      "studentCardId": "CSE-240T01",
+      "studentCardId": "CSE-24T01",
       "name": "Muna Sahu",
-      "rollNo": "CSE-240T01",
+      "rollNo": "CSE-24T01",
+      "password": "1234",
+      "borrowingHistory": []
+    }
+    {
+      "studentCardId": "CSE-24020",
+      "name": "Paban Barik",
+      "rollNo": "CSE-24020",
+      "password": "1234",
+      "borrowingHistory": []
+    }
+    {
+      "studentCardId": "CSE-24L01",
+      "name": "Abhijit Kesari",
+      "rollNo": "CSE-24L01",
+      "password": "1234",
+      "borrowingHistory": []
+    }
+    {
+      "studentCardId": "CSE-24L04",
+      "name": "Rohit Kumar Pal",
+      "rollNo": "CSE-24L04",
       "password": "1234",
       "borrowingHistory": []
     }
