@@ -1,0 +1,172 @@
+{
+  "books": [
+    {
+      "bookId": "CSE-101",
+      "bookTitle": "Operating System Concepts",
+      "authorName": "Silberschatz, Galvin, Gagne",
+      "publisherName": "Wiley",
+      "branch": "CSE",
+      "totalCopies": 10
+    },
+    {
+      "bookId": "CSE-102",
+      "bookTitle": "Database System Concepts",
+      "authorName": "Abraham Silberschatz",
+      "publisherName": "McGraw-Hill",
+      "branch": "CSE",
+      "totalCopies": 8
+    },
+    {
+      "bookId": "CSE-103",
+      "bookTitle": "Computer Networking: A Top-Down Approach",
+      "authorName": "Kurose & Ross",
+      "publisherName": "Pearson",
+      "branch": "CSE",
+      "totalCopies": 12
+    },
+    {
+      "bookId": "CSE-104",
+      "bookTitle": "Data Structures and Algorithms",
+      "authorName": "Narasimha Karumanchi",
+      "publisherName": "CareerMonk",
+      "branch": "CSE",
+      "totalCopies": 15
+    },
+    {
+      "bookId": "CSE-105",
+      "bookTitle": "Artificial Intelligence: A Modern Approach",
+      "authorName": "Stuart Russell, Peter Norvig",
+      "publisherName": "Pearson",
+      "branch": "CSE",
+      "totalCopies": 5
+    },
+    {
+      "bookId": "CIVIL-201",
+      "bookTitle": "Analysis of Structures",
+      "authorName": "V.N. Vazirani",
+      "publisherName": "Khanna Publishers",
+      "branch": "CIVIL",
+      "totalCopies": 6
+    },
+    {
+      "bookId": "CIVIL-202",
+      "bookTitle": "Building Construction",
+      "authorName": "Dr. B.C. Punmia",
+      "publisherName": "Laxmi Publications",
+      "branch": "CIVIL",
+      "totalCopies": 10
+    },
+    {
+      "bookId": "CIVIL-203",
+      "bookTitle": "A Textbook of Fluid Mechanics",
+      "authorName": "R.K. Bansal",
+      "publisherName": "Firewall Media",
+      "branch": "CIVIL",
+      "totalCopies": 8
+    },
+    {
+      "bookId": "CIVIL-204",
+      "bookTitle": "Surveying: Volume 1",
+      "authorName": "S.K. Duggal",
+      "publisherName": "McGraw-Hill",
+      "branch": "CIVIL",
+      "totalCopies": 7
+    },
+    {
+      "bookId": "MECH-301",
+      "bookTitle": "Basic Mechanical Engineering",
+      "authorName": "S.K. Bhattacharya",
+      "publisherName": "S. Chand",
+      "branch": "MECH",
+      "totalCopies": 10
+    },
+    {
+      "bookId": "MECH-302",
+      "bookTitle": "Thermodynamics: An Engineering Approach",
+      "authorName": "Yunus A. Cengel",
+      "publisherName": "McGraw-Hill",
+      "branch": "MECH",
+      "totalCopies": 5
+    },
+    {
+      "bookId": "MECH-303",
+      "bookTitle": "Theory of Machines",
+      "authorName": "R.S. Khurmi",
+      "publisherName": "S. Chand",
+      "branch": "MECH",
+      "totalCopies": 12
+    },
+    {
+      "bookId": "MECH-304",
+      "bookTitle": "Manufacturing Science",
+      "authorName": "Amitabha Ghosh",
+      "publisherName": "East-West Press",
+      "branch": "MECH",
+      "totalCopies": 7
+    },
+    {
+      "bookId": "ELE-401",
+      "bookTitle": "Fundamentals of Electrical Engineering",
+      "authorName": "V.K. Mehta",
+      "publisherName": "S. Chand",
+      "branch": "ELE",
+      "totalCopies": 15
+    },
+    {
+      "bookId": "ELE-402",
+      "bookTitle": "Electrical Machinery",
+      "authorName": "P.S. Bimbhra",
+      "publisherName": "Khanna Publishers",
+      "branch": "ELE",
+      "totalCopies": 8
+    },
+    {
+      "bookId": "ELE-403",
+      "bookTitle": "Modern Control Engineering",
+      "authorName": "Katsuhiko Ogata",
+      "publisherName": "Pearson",
+      "branch": "ELE",
+      "totalCopies": 6
+    },
+    {
+      "bookId": "ELE-404",
+      "bookTitle": "Power System Engineering",
+      "authorName": "D.P. Kothari",
+      "publisherName": "McGraw-Hill",
+      "branch": "ELE",
+      "totalCopies": 9
+    },
+    {
+      "bookId": "ETC-501",
+      "bookTitle": "Electronic Devices and Circuit Theory",
+      "authorName": "Robert L. Boylestad",
+      "publisherName": "Pearson",
+      "branch": "ETC",
+      "totalCopies": 10
+    },
+    {
+      "bookId": "ETC-502",
+      "bookTitle": "Digital Logic and Computer Design",
+      "authorName": "M. Morris Mano",
+      "publisherName": "Pearson",
+      "branch": "ETC",
+      "totalCopies": 14
+    },
+    {
+      "bookId": "ETC-503",
+      "bookTitle": "Signals and Systems",
+      "authorName": "Alan V. Oppenheim",
+      "publisherName": "Pearson",
+      "branch": "ETC",
+      "totalCopies": 6
+    },
+    {
+      "bookId": "ETC-504",
+      "bookTitle": "Communication Systems",
+      "authorName": "Simon Haykin",
+      "publisherName": "Wiley",
+      "branch": "ETC",
+      "totalCopies": 8
+    }
+  ]
+}

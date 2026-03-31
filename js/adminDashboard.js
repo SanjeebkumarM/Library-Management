@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
   
-  // Retrieves the student data from localStorage
   const adminDataString = localStorage.getItem("currentAdmin");
 
   if (!adminDataString) {
@@ -19,3 +18,4 @@ function logout() {
   localStorage.removeItem("currentAdmin");
   window.location.href = "./librarianLogin.html";
 }
+

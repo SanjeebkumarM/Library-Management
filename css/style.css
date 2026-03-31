@@ -3,8 +3,8 @@
 .navBar {
     background-color: #07508b;
     height: 60px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,7 +49,6 @@
 }
 
 .logo {
-  padding-left: 5px;
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -227,7 +226,7 @@
 
 .table_container {
   width: 85%;
-  margin: 125px auto 0px auto;
+  margin: 119px auto 0px auto;
 }
 
 .table_container h2 {
@@ -439,11 +438,11 @@
     padding-right: 20px;
 }
 .dashboard-container h1{
-  color: #000000;
-  font-family: sans-serif;
+  color: #575757;
+  font-family: system-ui;
   font-size: 30px;
-  font-weight: 400;
-  padding-bottom: 40px;
+  font-weight: 500;
+  padding-bottom: 15px;
   animation: fadeInSlide 0.6s ease-out forwards;
 }
 .dashboard-grid {
@@ -518,4 +517,73 @@
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 5px;
+}
+
+.frosted-glass {
+  background-color: rgba(255, 255, 255, 0.199) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important; /* For Safari support */
+  border: 1px solid rgba(158, 158, 158, 0.4) !important;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px;
+}
+
+table.frosted-glass {
+  border-collapse: separate !important;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+table.frosted-glass tr,
+table.frosted-glass th,
+table.frosted-glass td {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+table.frosted-glass th,
+table.frosted-glass td {
+  color: #111 !important; 
+}
+
+table.frosted-glass.table-hover tbody tr:hover td,
+table.frosted-glass.table-hover tbody tr:hover th {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.frosted-glass td, 
+.frosted-glass th {
+  border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.frosted-glass tr td:last-child, 
+.frosted-glass tr th:last-child {
+  border-right: none !important;
+}
+
+.frosted-glass td {
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.frosted-glass thead th {
+  background-color: rgba(66, 66, 66, 0.3) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5) !important;
+  color: #000 !important;
+
+}
+.modal-content.frosted-glass .form-control{
+  background-color: rgba(255, 255, 255, 0.486) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.modal-content.frosted-glass .modal-header{
+  background-color: rgba(36, 36, 36, 0.247) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.modal-content.frosted-glass .modal-footer {
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }

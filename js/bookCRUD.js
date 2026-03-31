@@ -1,160 +1,183 @@
-function getAllBooks() {
-  var jsonString = localStorage.getItem("myBooks");
-  var jsonObj = JSON.parse(jsonString);
-  console.log(jsonObj);
-
-  for(var i=0; i<jsonObj.books.length; i++) {
-    var trow = document.createElement("tr");
-
-    //using innerHTML with template string
-    trow.innerHTML = `
-        <th scope="row">${jsonObj.books[i].bookId}</th>
-        <td>${jsonObj.books[i].bookTitle}</td>
-        <td>${jsonObj.books[i].authorName}</td>
-        <td>${jsonObj.books[i].publisherName}</td>
-        <td class="table_buttons">
-          <a 
-            class="edit" 
-            href="adminBooksEdit.html"
-            onclick="rememberBook('${jsonObj.books[i].bookId}', '${jsonObj.books[i].bookTitle}', '${jsonObj.books[i].authorName}', '${jsonObj.books[i].publisherName}')"
-            title="Edit Book" 
-            data-toggle="tooltip"
-          >
-            <i class="material-icons">edit</i>
-          </a>
-          <a 
-            class="delete" 
-            href="adminBooks.html" 
-            onclick="deleteBookHandler('${jsonObj.books[i].bookTitle}')" 
-            title="Delete Book" 
-            data-toggle="tooltip"
-          >
-            <i class="material-icons">delete</i>
-          </a>
-        </td>`;
-
-    document.getElementsByTagName("tbody")[0].appendChild(trow);
+// Initialize books database if it doesn't exist
+async function initializeBooks() {
+  if (!localStorage.getItem("myBooks")) {
+    try {
+      const response = await fetch("../../books.json");
+      const jsonObj = await response.json();
+      localStorage.setItem("myBooks", JSON.stringify(jsonObj));
+    } catch (error) {
+      console.error("Failed to fetch books.json", error);
+      // Fallback to empty array if the fetch fails
+      localStorage.setItem("myBooks", JSON.stringify({ books: [] }));
+    }
   }
 }
 
+function manageBranch(branchName) {
+  localStorage.setItem("selectedBranch", branchName);
+  window.location.href = "editbookCopies.html";
+}
 
-function addBookHandler() {
-  //gather entered form data
-  var bookTitle = document.getElementById("addBookTitle").value;
-  var bookAuthor = document.getElementById("addBookAuthor").value;
-  var bookPublisher = document.getElementById("addBookPublisher").value;
+//Loads books specific to the selected branch
+async function loadBranchBooks() {
+  await initializeBooks();
+  const branch = localStorage.getItem("selectedBranch");
   
-  if(bookTitle==="" || bookAuthor==="" || bookPublisher==="") {
-    alert("Fields cannot be empty.");
+  if (!branch) {
+    window.location.href = "libBranchesList.html";
     return;
   }
-  if(bookTitle.length>25 || bookAuthor.length>25 || bookPublisher.length>25) {
-    alert("Fields cannot exceed 25 characters.");
+  
+  document.getElementById("branchTitle").innerText = `Manage Books: ${branch}`;
+
+  const jsonObj = JSON.parse(localStorage.getItem("myBooks"));
+  const studentsObj = JSON.parse(localStorage.getItem("myStudents")) || { students: [] };
+
+  const branchBooks = jsonObj.books.filter(b => b.branch === branch);
+  const tbody = document.getElementById("booksTableBody");
+  tbody.innerHTML = "";
+
+  if (branchBooks.length === 0) {
+    tbody.innerHTML = "<tr><td colspan='7' class='text-center'>No books found for this branch. Add one below!</td></tr>";
     return;
   }
 
-  var saveObj = {
-    "bookId": 4,
-    "bookTitle": bookTitle,
-    "authorName": bookAuthor,
-    "publisherName": bookPublisher
-  };
+  branchBooks.forEach(book => {
+    // Stock Calculation
+    let borrowedCount = 0;
+    studentsObj.students.forEach(student => {
+      student.borrowingHistory.forEach(history => {
+        if (history.bookId === book.bookId && history.returnDate === null) {
+          borrowedCount++;
+        }
+      });
+    });
 
-  var jsonString = localStorage.getItem("myBooks");
-  var jsonObj = JSON.parse(jsonString);
+    const availableStock = book.totalCopies - borrowedCount;
+    const stockClass = availableStock > 0 ? "text-success" : "text-danger";
 
-  jsonObj.books.push(saveObj);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="align-middle">${book.bookId}</td>
+      <td class="align-middle">${book.bookTitle}</td>
+      <td class="align-middle">${book.authorName}</td>
+      <td class="align-middle">${book.publisherName}</td>
+      <td class="align-middle text-center">${book.totalCopies}</td>
+      <td class="${stockClass} fw-bold text-center align-middle">${availableStock}</td>
+      <td class="table_buttons align-middle">
+        <a class="edit px-2" href="#bookFormCard" onclick="editBook('${book.bookId}')" title="Edit Book">
+          <button class="btn btn-outline-warning"><i class="material-icons">edit</i></button>
+        </a>
+      </td>
+      <td class="table_buttons align-middle">
+        <a class="delete px-2" href="#" onclick="deleteBook('${book.bookId}')" title="Delete Book">
+          <button class="btn btn-outline-danger"><i class="material-icons">delete</i></button>
+        </a>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+
+function openAddModal() {
+  document.getElementById("bookForm").reset();
+  document.getElementById("isEditing").value = "false";
+  document.getElementById("bookId").readOnly = false;
+  document.getElementById("formSubmitBtn").innerText = "Add Book";
+  document.getElementById("formTitle").innerText = "Add New Book";
+  
+  const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('bookModal'));
+  modal.show();
+}
+
+//Handles Add / Update Form Submission
+function saveBook(event) {
+  event.preventDefault();
+  
+  const branch = localStorage.getItem("selectedBranch");
+  const bookId = document.getElementById("bookId").value;
+  const title = document.getElementById("bookTitle").value;
+  const author = document.getElementById("bookAuthor").value;
+  const publisher = document.getElementById("bookPublisher").value;
+  const copies = parseInt(document.getElementById("bookCopies").value);
+  const isEditing = document.getElementById("isEditing").value; 
+
+  let jsonObj = JSON.parse(localStorage.getItem("myBooks"));
+
+  if (isEditing === "true") {
+    const bookIndex = jsonObj.books.findIndex(b => b.bookId === bookId && b.branch === branch);
+    if (bookIndex !== -1) {
+      jsonObj.books[bookIndex].bookTitle = title;
+      jsonObj.books[bookIndex].authorName = author;
+      jsonObj.books[bookIndex].publisherName = publisher;
+      jsonObj.books[bookIndex].totalCopies = copies;
+      alert("Book updated successfully!");
+    }
+  } else {
+    const exists = jsonObj.books.find(b => b.bookId === bookId);
+    if (exists) {
+      alert("A book with this ID already exists in the system!");
+      return;
+    }
+    jsonObj.books.push({
+      bookId: bookId,
+      bookTitle: title,
+      authorName: author,
+      publisherName: publisher,
+      branch: branch,
+      totalCopies: copies
+    });
+    alert("Book added successfully!");
+  }
+
   localStorage.setItem("myBooks", JSON.stringify(jsonObj));
   
-  window.location.href = "adminBooks.html"; //only redirect when successful
-}
-
-
-function rememberBook(id, title, author, publisher) {
-  var saveObj = {
-    "bookId": id,
-    "bookTitle": title,
-    "authorName": author,
-    "publisherName": publisher
-  };
-
-  localStorage.setItem("bookToEdit", JSON.stringify(saveObj));
-}
-
-
-function fillSelectedBook() {
-  var objString = localStorage.getItem("bookToEdit");
-  var obj = JSON.parse(objString);
-
-  //create the input tags to dynamically inject
-  var editTitleInput = document.createElement("input");
-  editTitleInput.setAttribute("type", "text");
-  editTitleInput.setAttribute("class", "form-control");
-  editTitleInput.setAttribute("id", "editBookTitle");
-  editTitleInput.setAttribute("value", `${obj.bookTitle}`);
-  editTitleInput.setAttribute("placeholder", "Title...");
-
-  var editAuthorInput = document.createElement("input");
-  editAuthorInput.setAttribute("type", "text");
-  editAuthorInput.setAttribute("class", "form-control");
-  editAuthorInput.setAttribute("id", "editBookAuthor");
-  editAuthorInput.setAttribute("value", `${obj.authorName}`);
-  editAuthorInput.setAttribute("placeholder", "Author...");
-
-  var editPublisherInput = document.createElement("input");
-  editPublisherInput.setAttribute("type", "text");
-  editPublisherInput.setAttribute("class", "form-control");
-  editPublisherInput.setAttribute("id", "editBookPublisher");
-  editPublisherInput.setAttribute("value", `${obj.publisherName}`);
-  editPublisherInput.setAttribute("placeholder", "Publisher...");
-
-  document.getElementsByClassName("col-sm-10 e1")[0].appendChild(editTitleInput);
-  document.getElementsByClassName("col-sm-10 e2")[0].appendChild(editAuthorInput);
-  document.getElementsByClassName("col-sm-10 e3")[0].appendChild(editPublisherInput);
-}
-
-
-//for now, update by title
-function updateBookHandler() {
-  //gather entered form data
-  var newBookTitle = document.getElementById("editBookTitle").value;
-  var newBookAuthor = document.getElementById("editBookAuthor").value;
-  var newBookPublisher = document.getElementById("editBookPublisher").value;
-
-  //get what book to edit via the title
-  var objString = localStorage.getItem("bookToEdit");
-  var obj = JSON.parse(objString);
-  var targetTitle = obj.bookTitle;
-
-  var jsonString = localStorage.getItem("myBooks");
-  var jsonObj = JSON.parse(jsonString);
-
-  //find the book to edit in myBooks
-  for(var i=0; i<jsonObj.books.length; i++) {
-    //do updates
-    if(jsonObj.books[i].bookTitle === targetTitle) {
-      jsonObj.books[i].bookTitle = newBookTitle;
-      jsonObj.books[i].authorName = newBookAuthor;
-      jsonObj.books[i].publisherName = newBookPublisher;
-    }
+  const modal = bootstrap.Modal.getInstance(document.getElementById('bookModal'));
+  if (modal) {
+    modal.hide();
   }
+  cancelEdit();
+  loadBranchBooks();
+}
+function editBook(targetId) {
+  const branch = localStorage.getItem("selectedBranch");
+  const jsonObj = JSON.parse(localStorage.getItem("myBooks"));
+  const book = jsonObj.books.find(b => b.bookId === targetId && b.branch === branch);
 
-  //save back to local storage
-  localStorage.setItem("myBooks", JSON.stringify(jsonObj));
+  if (book) {
+    document.getElementById("bookId").value = book.bookId;
+    document.getElementById("bookId").readOnly = true; 
+    document.getElementById("bookTitle").value = book.bookTitle;
+    document.getElementById("bookAuthor").value = book.authorName;
+    document.getElementById("bookPublisher").value = book.publisherName;
+    document.getElementById("bookCopies").value = book.totalCopies;
+    
+    document.getElementById("isEditing").value = "true";
+    document.getElementById("formSubmitBtn").innerText = "Update Book";
+    document.getElementById("formTitle").innerText = "Edit Book Information";
+    
+    const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('bookModal'));
+    modal.show();
+  }
 }
 
+function deleteBook(targetId) {
+  if (!confirm("Are you sure you want to delete this book?")) return;
 
-//for now, delete by title
-function deleteBookHandler(title) {
-  var jsonString = localStorage.getItem("myBooks");
-  var jsonObj = JSON.parse(jsonString);
-
-  for(var i=0; i<jsonObj.books.length; i++) {
-    if(jsonObj.books[i].bookTitle === title) {
-      jsonObj.books.splice(i, 1);  //remove 1 item from books array which is target obj i
-      break;
-    }
-  }
-
+  const branch = localStorage.getItem("selectedBranch");
+  let jsonObj = JSON.parse(localStorage.getItem("myBooks"));
+  
+  jsonObj.books = jsonObj.books.filter(b => !(b.bookId === targetId && b.branch === branch));
+  
   localStorage.setItem("myBooks", JSON.stringify(jsonObj));
+  loadBranchBooks();
+}
+
+function cancelEdit() {
+  document.getElementById("bookForm").reset();
+  document.getElementById("isEditing").value = "false";
+  document.getElementById("bookId").readOnly = false;
+  document.getElementById("formSubmitBtn").innerText = "Add Book";
+  document.getElementById("formTitle").innerText = "Add New Book";
 }
