@@ -5,22 +5,7 @@
       "name": "Sanjeeb Munda",
       "rollNo": "CSE-24028",
       "password": "1234",
-      "borrowingHistory": [
-        {
-          "bookId": "B001",
-          "title": "Data Structures",
-          "issuedDate": "2026-03-01",
-          "dueDate": "2026-04-01",
-          "returnDate": null
-        },
-        {
-          "bookId": "B002",
-          "title": "Operating System Concepts",
-          "issuedDate": "2026-03-10",
-          "dueDate": "2026-04-10",
-          "returnDate": null
-        }
-      ]
+      "borrowingHistory": []
     },
     {
       "studentCardId": "CSE-24T01",
@@ -37,14 +22,14 @@
       "borrowingHistory": []
     },
     {
-      "studentCardId": "CSE-24L01",
+      "studentCardId": "CSE-25L01",
       "name": "Abhijit Kesari",
       "rollNo": "CSE-24L01",
       "password": "1234",
       "borrowingHistory": []
     },
     {
-      "studentCardId": "CSE-24L04",
+      "studentCardId": "CSE-25L04",
       "name": "Rohit Kumar Pal",
       "rollNo": "CSE-24L04",
       "password": "1234",
