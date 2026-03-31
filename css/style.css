@@ -26,37 +26,15 @@
         transform: translateY(0);    /* Ends in normal position */
     }
 }
-.nav-right {
-    margin-top: 6px;
-    margin-bottom: 5px;
-    flex-grow: 1;
-}
-.nav-right h3{
-  color: rgb(209, 209, 209);
-  font-weight: bold;
-  font-family: system-ui;
-  font-size: 14px;
-  
-  
-  margin-bottom: 0px
-}
-.nav-right p{
-  color: rgb(209, 209, 209);
-  font-family: system-ui;
-  font-size: 8.1px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
 
 .logo {
   padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   
 }
 .logo img {
   height: 50px;
-  width: 55.93px;
 }
 
 .navButtons {
