@@ -65,12 +65,12 @@ async function loadBranchBooks() {
       <td class="align-middle text-center">${book.totalCopies}</td>
       <td class="${stockClass} fw-bold text-center align-middle">${availableStock}</td>
       <td class="table_buttons text-center align-middle">
-        <a class="edit px-2" href="#bookFormCard" onclick="editBook('${book.bookId}')" title="Edit Book">
+        <a class="edit" href="#bookFormCard" onclick="editBook('${book.bookId}')" title="Edit Book">
           <button class="btn btn-outline-warning"><i class="material-icons">edit</i></button>
         </a>
       </td>
       <td class="table_buttons text-center align-middle">
-        <a class="delete px-2" href="#" onclick="deleteBook('${book.bookId}')" title="Delete Book">
+        <a class="delete" href="#" onclick="deleteBook('${book.bookId}')" title="Delete Book">
           <button class="btn btn-outline-danger"><i class="material-icons">delete</i></button>
         </a>
       </td>
