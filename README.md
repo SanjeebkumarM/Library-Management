@@ -3,10 +3,25 @@
 A modern, frontend-only Library Management System (Minor Project) built for Sundargarh Engineering School as a partial requirement for the diploma of Computer Science & Engg. 
 This application provides a seamless experience for both Librarians (Admins) and Students to manage book inventories, track borrowing histories, and handle checkouts without the need for a backend database.
 
+##
+
 ### Live Demo
 *https://sanjeebkumarm.github.io/Library-Management/*
 
----
+
+
+## Our Team
+This project was developed by:
+* **Sanjeeb Munda**
+* **Muna Sahu**
+* **Paban Barik**
+* **Abhijit Kesari**
+* **Rohit Kumar Pal**
+
+## Internal Guide
+* **Ms. Suprava Dash**
+
+##
 
 ## Features
 
@@ -26,7 +41,7 @@ This application provides a seamless experience for both Librarians (Admins) and
 * **Fully Responsive:** Optimized for both desktop and mobile viewing.
 * **No Page Reloads for Modals:** Utilizes Bootstrap 5 Vanilla JavaScript for smooth, instantaneous pop-ups.
 
----
+##
 
 ## Technologies Used
 
@@ -36,7 +51,7 @@ This application provides a seamless experience for both Librarians (Admins) and
 * **Bootstrap Icons & Google Material Icons**
 * **Local Storage API:** Simulates a persistent database on the client side.
 
----
+##
 
 ## How the Data Works (No Backend Required)
 
@@ -46,7 +61,7 @@ This project relies completely on the browser's `localStorage` to simulate CRUD 
 2. This data is saved into the browser's `localStorage`.
 3. All subsequent additions, checkouts, and edits manipulate the `localStorage` arrays, allowing the app to act like it has a real, persistent database as long as the browser cache isn't cleared.
 
----
+##
 
 ## How to Run Locally
 
@@ -64,7 +79,7 @@ You must run it through a local server:
 2. Run `python -m http.server 8000` (or `python3`).
 3. Open your browser and go to `http://localhost:8000`.
 
----
+##
 
 ## Default Login Credentials
 
@@ -78,7 +93,7 @@ If you are running the project for the first time, use these credentials to log 
 * **Roll No:** `CSE-24028`
 * **Password:** `1234`
 
----
+##
 
 ## Project Structure
 
@@ -93,16 +108,3 @@ If you are running the project for the first time, use these credentials to log 
 ├── librarians.json     # Initial default admin credentials
 ├── students.json       # Initial default student credentials & history
 └── index.html          # Entry point (Redirects to homepage)
-
----
-
-## Our Team:
-
-* **1. Sanjeeb Munda**
-* **2. Muna Sahu**
-* **3. Paban Barik**
-* **4. Abhijit Kesari**
-* **5. Rohit Kumar Pal**
-
-## Internal Guide:
-* **Ms. Suprava Dash**
