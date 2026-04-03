@@ -54,6 +54,7 @@
 .welcomeDiv {
   padding-top: 100px;
   text-align: center;
+  animation: fadeInSlide 0.4s ease-out forwards;
 }
 .welcomeMsg {
   color: #07508b;
@@ -62,6 +63,7 @@
 .userType {
   margin-top: 50px;
   font-size: 19px;
+  animation: fadeInSlide 0.5s ease-out forwards;
 }
 
 .selection {
@@ -570,4 +572,12 @@ table.frosted-glass.table-hover tbody tr:hover th {
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
   opacity: 1 !important;
+}
+
+/* Animation */
+.card {
+  animation: fadeInSlide 0.6s ease-out forwards;
+}
+.table_container{
+  animation: fadeInSlide 0.6s ease-out forwards;
 }
