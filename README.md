@@ -1,4 +1,4 @@
-# Library Management System
+## Library Management System
 
 A modern, frontend-only Library Management System (Minor Project) built for Sundargarh Engineering School as a partial requirement for the diploma of Computer Science & Engg. 
 This application provides a seamless experience for both Librarians (Admins) and Students to manage book inventories, track borrowing histories, and handle checkouts without the need for a backend database.
@@ -10,16 +10,16 @@ This application provides a seamless experience for both Librarians (Admins) and
 
 
 
-## Our Team
+### Our Team
 This project was developed by:
-* **Sanjeeb Munda**
-* **Muna Sahu**
-* **Paban Barik**
-* **Abhijit Kesari**
-* **Rohit Kumar Pal**
+* Sanjeeb Munda
+* Muna Sahu
+* Paban Barik
+* Abhijit Kesari
+* Rohit Kumar Pal
 
-## Internal Guide
-* **Ms. Suprava Dash**
+### Internal Guide
+* Ms. Suprava Dash
 
 ##
 
