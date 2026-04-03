@@ -20,7 +20,7 @@ function manageBranch(branchName) {
 
 //Loads books specific to the selected branch
 async function loadBranchBooks() {
-  await initializeBooks();
+  
   const branch = localStorage.getItem("selectedBranch");
   
   if (!branch) {
@@ -29,12 +29,25 @@ async function loadBranchBooks() {
   }
   
   document.getElementById("branchTitle").innerText = `Manage Books: ${branch}`;
+  const tbody = document.getElementById("booksTableBody");
 
+  tbody.innerHTML = `
+    <tr>
+      <td colspan="100%" class="text-center py-5 border-0">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="mt-2 text-dark fw-bold">Fetching List...</div>
+      </td>
+    </tr>
+  `;
+
+  await initializeBooks();
+  await new Promise(resolve => setTimeout(resolve, 500));
   const jsonObj = JSON.parse(localStorage.getItem("myBooks"));
   const studentsObj = JSON.parse(localStorage.getItem("myStudents")) || { students: [] };
-
   const branchBooks = jsonObj.books.filter(b => b.branch === branch);
-  const tbody = document.getElementById("booksTableBody");
+
   tbody.innerHTML = "";
 
   if (branchBooks.length === 0) {
@@ -64,13 +77,13 @@ async function loadBranchBooks() {
       <td class="align-middle">${book.publisherName}</td>
       <td class="align-middle text-center">${book.totalCopies}</td>
       <td class="${stockClass} fw-bold text-center align-middle">${availableStock}</td>
-      <td class="table_buttons text-center align-middle">
-        <a class="edit" href="#bookFormCard" onclick="editBook('${book.bookId}')" title="Edit Book">
+      <td class="table_buttons align-middle">
+        <a class="edit px-2" href="#bookFormCard" onclick="editBook('${book.bookId}')" title="Edit Book">
           <button class="btn btn-outline-warning"><i class="material-icons">edit</i></button>
         </a>
       </td>
-      <td class="table_buttons text-center align-middle">
-        <a class="delete" href="#" onclick="deleteBook('${book.bookId}')" title="Delete Book">
+      <td class="table_buttons align-middle">
+        <a class="delete px-2" href="#" onclick="deleteBook('${book.bookId}')" title="Delete Book">
           <button class="btn btn-outline-danger"><i class="material-icons">delete</i></button>
         </a>
       </td>
