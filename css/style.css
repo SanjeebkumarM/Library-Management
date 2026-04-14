@@ -578,6 +578,6 @@ table.frosted-glass.table-hover tbody tr:hover th {
 .card {
   animation: fadeInSlide 0.6s ease-out forwards;
 }
-.table_container{
+.table{
   animation: fadeInSlide 0.6s ease-out forwards;
 }
