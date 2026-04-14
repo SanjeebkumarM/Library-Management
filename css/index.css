@@ -15,7 +15,7 @@ html, body {
   margin: 0; 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 430px) {
   body {
     background-image: url('../assets/homepage-portrait.jpg');
   }
